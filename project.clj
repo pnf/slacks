@@ -1,4 +1,4 @@
-(defproject yowsa "0.1.0-SNAPSHOT"
+(defproject slacks "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :dependencies [[org.clojure/clojure "1.6.0"]
@@ -6,9 +6,9 @@
                  [hiccup "1.0.5"]
                  [ring-server "0.3.1"]]
   :plugins [[lein-ring "0.8.10"]]
-  :ring {:handler yowsa.handler/app
-         :init yowsa.handler/init
-         :destroy yowsa.handler/destroy}
+  :ring {:handler slacks.handler/app
+         :init slacks.handler/init
+         :destroy slacks.handler/destroy}
   :aot :all
   :profiles
   {:production

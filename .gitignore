@@ -12,3 +12,4 @@ LINES
 .lein-failures
 .lein-plugins
 .lein-env
+.nrepl*
