@@ -21,10 +21,11 @@
 
 
 (defn slacks []
+  (println "Hitting boring old slacks")
   (layout/common [:h1 (slacks.quotes/get-quote)]))
 
 (defn slacks-json [params]
-  (println params)
+  (println "a POST" params)
    {:status 200
     :headers {"Content-Type" "application/json"}
     :body (json/generate-string {"text" (slacks.quotes/get-quote)})})
@@ -33,5 +34,5 @@
 (defroutes home-routes
   (GET "/" [] (home))
   (GET "/slacks" [] (slacks))
-  (PUT "/slacks" {params :params} (slacks-json params))
+  (POST "/slacks" {params :params} (slacks-json params))
 )
