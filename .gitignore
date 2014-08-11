@@ -3,7 +3,7 @@
 /classes
 /checkouts
 pom.xml
-SLACK
+TOKEN
 LINES
 *~
 *.jar
@@ -12,4 +12,5 @@ LINES
 .lein-failures
 .lein-plugins
 .lein-env
+.lein-repl*
 .nrepl*

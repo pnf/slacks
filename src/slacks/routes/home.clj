@@ -25,10 +25,12 @@
   (layout/common [:h1 (slacks.quotes/get-quote)]))
 
 (defn slacks-json [params]
-  (println "a POST" params)
-   {:status 200
-    :headers {"Content-Type" "application/json"}
-    :body (json/generate-string {"text" (slacks.quotes/get-quote)})})
+  (println params)
+  (if (slacks.quotes/request-ok? params)
+    {:status 200
+     :headers {"Content-Type" "application/json"}
+     :body (json/generate-string {"text" (slacks.quotes/get-quote)})}
+    {:status 403}))
 
 
 (defroutes home-routes
