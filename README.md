@@ -1,19 +1,17 @@
 # slacks
 
-FIXME
-
-## Prerequisites
-
-You will need [Leiningen][1] 1.7.0 or above installed.
-
-[1]: https://github.com/technomancy/leiningen
+Serves up random quotes to a slack team, once integration is configured.
 
 ## Running
 
 To start a web server for the application, run:
 
-    lein ring server
+Starting directory should contain the slack integration token, without newline, in
+a file named TOKEN, and \000 delimited quotes in a file named LINES.
+
+    lein ring server-headless SOMEPORT
 
 ## License
 
-Copyright © 2014 FIXME
+Do whatever you want with this.
+
