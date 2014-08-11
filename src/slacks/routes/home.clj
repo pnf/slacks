@@ -18,11 +18,15 @@
 ;; text=googlebot: What is the air-speed velocity of an unladen swallow?
 ;; trigger_word=googlebot:
 
+(def ^:dynamic *testing?* false)
 
-
-(defn slacks []
-  (println "Hitting boring old slacks")
-  (layout/common [:h1 (slacks.quotes/get-quote)]))
+(defn slacks [] 
+  (if *testing?* 
+    (do 
+      (println "Hitting boring old slacks")
+      (layout/common [:h1 (slacks.quotes/get-quote)]))
+    {:status 403
+     :body "Buzz off"}))
 
 (defn slacks-json [params]
   (println params)
@@ -30,11 +34,12 @@
     {:status 200
      :headers {"Content-Type" "application/json"}
      :body (json/generate-string {"text" (slacks.quotes/get-quote)})}
-    {:status 403}))
+    {:status 403
+     :body "Buzz off"}))
 
 
 (defroutes home-routes
-  (GET "/" [] (home))
+  (GET "/" [] (slacks))
   (GET "/slacks" [] (slacks))
   (POST "/slacks" {params :params} (slacks-json params))
 )
