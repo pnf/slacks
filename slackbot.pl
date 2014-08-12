@@ -1,4 +1,4 @@
-#!env perl
+#!/usr/bin/env perl
 use Mojolicious::Lite;
 use File::Slurp;
 my $token = read_file("TOKEN");
