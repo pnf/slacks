@@ -5,6 +5,7 @@
 pom.xml
 TOKEN
 LINES
+ZULIP
 *~
 *.jar
 *.class
